@@ -25,7 +25,7 @@
                     <td class="border p-2">
                         <form action="{{ route('sales.restore', $sale->id) }}" method="POST">
                             @csrf
-                            <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded">Restore</button>
+                            <button type="submit" class="bg-green-500 text-white px-2 py-1 rounded" onclick="return confirm('Are you sure you want to restore this sale?')">Restore</button>
                         </form>
                     </td>
                 </tr>

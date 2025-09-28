@@ -22,6 +22,7 @@
                 <th class="border p-2">Date</th>
                 <th class="border p-2">Total</th>
                 <th class="border p-2">Items</th>
+                <th class="border p-2">Actions</th>
             </tr>
             </thead>
             <tbody>
@@ -34,9 +35,16 @@
                     <td class="border p-2">
                         <ul>
                             @foreach($sale->saleItems as $item)
-                                <li>{{ $item->product->name }} (Qty: {{ $item->quantity }}, Price: {{ $item->price }})</li>
+                                <li>{{ $item->product->name }} (Qty: {{ $item->quantity }}, Price: {{ $item->price }}, Discount: {{ $item->discount }})</li>
                             @endforeach
                         </ul>
+                    </td>
+                    <td class="border p-2">
+                        <form action="{{ route('sales.destroy', $sale->id) }}" method="POST">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="bg-red-500 text-white px-2 py-1 rounded" onclick="return confirm('Are you sure you want to delete this sale?')">Delete</button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

@@ -101,4 +101,12 @@ class SaleController extends Controller
         $product = Product::findOrFail($id);
         return response()->json(['price' => $product->price]);
     }
+
+    public function destroy($id)
+    {
+        $sale = Sale::findOrFail($id);
+        $sale->delete();
+        $sale->saleItems()->delete();
+        return redirect()->route('sales.index')->with('success', 'Sale deleted successfully');
+    }
 }
