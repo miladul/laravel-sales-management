@@ -20,5 +20,17 @@ class ProductSeeder extends Seeder
             'price' => 499.99,
             'description' => 'Latest model smartphone',
         ]);
+
+        Product::create([
+            'name' => 'iPhone 17',
+            'price' => 180000.00,
+            'description' => 'Latest model smartphone',
+        ]);
+
+        Product::create([
+            'name' => 'iPhone 17 pro max',
+            'price' => 220000.00,
+            'description' => 'Latest model smartphone',
+        ]);
     }
 }
